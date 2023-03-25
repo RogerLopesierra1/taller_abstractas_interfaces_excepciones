@@ -9,12 +9,30 @@ public class Ahorro extends Cuenta{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	
+	/**
+	 * Constructor con parámetros de la clase Ahorro
+	 * que llama al constructor con parámetros de la clase Cuenta
+	 * @param numeroCuenta el número de cuenta de la cuenta de ahorro
+	 * @param saldo el saldo de la cuenta de ahorro
+	 * @param propietario el propietario de la cuenta de ahorro
+	 */
 	public Ahorro(String numeroCuenta, double saldo, String propietario) {
 		super(numeroCuenta, saldo, propietario);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	/**
+	* Permite depositar dinero en la cuenta de ahorros.
+	*
+	* Solicita al usuario la cantidad de dinero a depositar y calcula el nuevo saldo de la cuenta de ahorros.
+	* Si se realizan más de tres depósitos, se aplica una tasa de interés del 0.5% al monto depositado.
+	* Permite realizar múltiples depósitos hasta que el usuario decida salir.
+	* 
+	* @throws InputMismatchException si se ingresa un valor no numérico como cantidad de dinero.
+	* @throws ArithmeticException si se ingresa un valor negativo como cantidad de dinero.
+	*/
 	@Override
 	public void depositar() {
 		Scanner teclado = new Scanner(System.in);
@@ -70,6 +88,15 @@ public class Ahorro extends Cuenta{
 		
 	}
 
+	/**
+     * Permite retirar dinero de la cuenta.
+     * Si el dinero solicitado para retirar es menor o igual al saldo disponible en la cuenta,
+     * se realiza el retiro de la cantidad solicitada.
+     * Si se han realizado más de tres retiros en la cuenta, se aplica una comisión del 1% sobre el monto a retirar.
+     * 
+     * @throws ArithmeticException si el monto a retirar es negativo.
+     * @throws InputMismatchException si el usuario ingresa un valor no numérico o negativo.
+     */
 	@Override
 	public void retirar() {
 		Scanner teclado = new Scanner(System.in);
